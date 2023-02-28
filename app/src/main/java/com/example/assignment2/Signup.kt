@@ -28,10 +28,10 @@ class Signup : AppCompatActivity() {
         userDao = appDb.getDao()
 
         binding.signUp.setOnClickListener{
-            writeData()
+            signUp()
         }
     }
-    private fun writeData(){
+    private fun signUp(){
         val firstName = binding.firstName.text.toString()
         val lastName = binding.lastName.text.toString()
         val password = binding.password.text.toString()
@@ -43,19 +43,27 @@ class Signup : AppCompatActivity() {
         if(login.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty() && password.isNotEmpty())
         {
             if (isUserExist)
-                {Toast.makeText(this,"User login exist!",Toast.LENGTH_SHORT).show()}
-            else
                 {
-                val user = Users(
-                    null, login, firstName, lastName, password
-                )
-                    userDao.insert(user)
-
-                Toast.makeText(this,"Successfully written",Toast.LENGTH_SHORT).show()
-                    startSignup()
+                Toast.makeText(this,"User login exist!",Toast.LENGTH_SHORT).show()
                 }
-        }
-            else {Toast.makeText(this,"PLease Enter Data",Toast.LENGTH_SHORT).show()}
+            else {
+                if (password.length < 6) {
+                    Toast.makeText(
+                        this,
+                        "Password is too short! Minimum 6 characters",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    val user = Users(null, login, firstName, lastName, password)
+                    userDao.insert(user)
+                    Toast.makeText(this, "Successfully written", Toast.LENGTH_SHORT).show()
+                    startSignup()
+                    }
+                }
+            }
+            else {
+                Toast.makeText(this,"PLease Enter Data",Toast.LENGTH_SHORT).show()
+                }
 
     }
     private fun startSignup(){

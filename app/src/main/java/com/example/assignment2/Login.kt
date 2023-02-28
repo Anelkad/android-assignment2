@@ -29,10 +29,10 @@ class Login : AppCompatActivity() {
         userDao = appDb.getDao()
 
         binding.loginButton.setOnClickListener{
-            readData()
+            login()
         }
     }
-    private fun readData(){
+    private fun login(){
         val password = binding.password.text.toString()
         val login = binding.login.text.toString()
 
@@ -46,8 +46,7 @@ class Login : AppCompatActivity() {
                 Toast.makeText(this,"User login don't exist! Sign Up!", Toast.LENGTH_SHORT).show()}
             else
             {
-                    isUserRegistered = userDao.isUserRegistered(login,password)
-
+                isUserRegistered = userDao.isUserRegistered(login,password)
                 if (isUserRegistered){
                     Toast.makeText(this,"Successfully login", Toast.LENGTH_SHORT).show()
                     startWelcome()
@@ -55,12 +54,11 @@ class Login : AppCompatActivity() {
                 else{
                     Toast.makeText(this,"Wrong password!", Toast.LENGTH_SHORT).show()
                 }
-
             }
         }
         else {
             Toast.makeText(this,"PLease Enter Data", Toast.LENGTH_SHORT).show()}
-    }
+            }
     private fun startWelcome(){
         val intent = Intent(this, Welcome::class.java)
         startActivity(intent)
