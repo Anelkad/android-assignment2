@@ -18,25 +18,23 @@
             android:layout_marginBottom="10dp"
             android:src="@drawable/checkfast_logo"/>
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email"
+            android:hint="Login"
             android:background="@drawable/edittext_bg"
             android:padding="8dp"/>
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password"
-            android:inputType="textPassword"
+            android:hint="Password"
             android:background="@drawable/edittext_bg"
-            android:drawableEnd="@drawable/baseline_remove_red_eye_24"
             android:drawableTint="@color/green"
             android:layout_marginTop="12dp"
             android:padding="8dp"/>
         <Button
-            android:id="@+id/login"
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -46,6 +44,16 @@
             android:fontFamily="monospace"
             android:textAllCaps="false"
             android:background="@drawable/button_bg"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:text="Sign Up"
+            android:onClick="startSignup"
+            android:gravity="center"
+            />
+
 
     </LinearLayout>
+
 </RelativeLayout>

@@ -8,11 +8,11 @@ interface UsersDao {
     @Query("SELECT * FROM users")
     fun getAll(): List<Users>
 
-    /* @Query("SELECT * FROM student_table WHERE uid IN (:userIds)")
-     fun loadAllByIds(userIds: IntArray): List<Student>*/
+    @Query("SELECT * FROM users WHERE login = :login AND password = :password")
+    fun isUserRegistered(login: String, password: String): Boolean
 
-    @Query("SELECT * FROM users WHERE id LIKE :roll LIMIT 1")
-    fun findByRoll(roll: Int): Users
+    @Query("SELECT count() FROM users WHERE login = :login")
+    fun isLoginExist(login: String): Boolean
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(student: Users)
