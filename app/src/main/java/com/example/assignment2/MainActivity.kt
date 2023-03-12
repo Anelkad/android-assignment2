@@ -16,11 +16,13 @@ class MainActivity : AppCompatActivity() {
 
     fun startLogin(view: View){
         val intent = Intent(this, Login::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
         startActivity(intent)
     }
 
     fun startSignup(view: View){
         val intent = Intent(this, Signup::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
         startActivity(intent)
     }
 }

@@ -1,6 +1,7 @@
 package com.example.assignment2
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -68,6 +69,7 @@ class Signup : AppCompatActivity() {
     }
     private fun startSignup(){
         val intent = Intent(this, MainActivity::class.java)
+        intent.flags = FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 

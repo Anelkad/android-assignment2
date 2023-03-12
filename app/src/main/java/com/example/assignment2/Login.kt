@@ -1,6 +1,7 @@
 package com.example.assignment2
 
 import android.content.Intent
+import android.content.Intent.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -65,6 +66,7 @@ class Login : AppCompatActivity() {
     }
     fun startSignup(view: View){
         val intent = Intent(this, Signup::class.java)
+        intent.flags = FLAG_ACTIVITY_NO_HISTORY
         startActivity(intent)
     }
 
